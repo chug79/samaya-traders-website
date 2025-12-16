@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Food and drinks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #modal-options {
+    margin: 20px 0;
+  }
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .option-item:hover {
+    border-color: #f39c12;
+  }
+  .option-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .option-item p {
+    margin: 0;
+    font-weight: bold;
+  }
+  </style>
+
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i> new city </a>
+
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#categories">categories</a>
+        <a href="index.html#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-count" class="cart-count">0</span>
+        <div id="cart-items"></div>
+        <div class="total" id="cart-total">Total: Rs. 0.00</div>
+        <a href="https://wa.me/+923278641145" id="checkout-btn" class="btn" target="_blank" rel="noopener noreferrer">Checkout via WhatsApp</a>
+    </div>
+</header>
+
+  <!-- product options modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Select Option</h2>
+      <div id="modal-options"></div>
+      <button id="add-to-cart-modal" class="btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <section class="products" id="dairy">
+    <h1 class="heading"></h1>
+    <div class="box-container" style="padding-top: 30px;">
+      <div class="box">
+        <img src="f&dimage/product-38.png" alt="">
+        <h3>Samaya Special Tea</h3>
+        <div class="price">Rs. 400/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-1" data-product-name="Samaya Special Tea" data-product-price="400">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-37.png" alt="">
+        <h3>Kisan Porridge</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-2" data-product-name="Kisan Porridge" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-35.png" alt="">
+        <h3>Talbeena</h3>
+        <div class="price">Rs. 330/-</div>
+        <a href="#" class="btn select-options" data-product-id="fd-3" data-product-name="Talbeena" data-options='[{"name":"Zafraan", "price":"330", "image":"image/product-36.png"}, {"name":"Mango", "price":"330", "image":"image/product-35.png"}, {"name":"Kulfa", "price":"330", "image":"image/product-34.png"}, {"name":"Banana", "price":"330", "image":"image/product-33.png"}, {"name":"Strawberry", "price":"330", "image":"image/product-32.png"}, {"name":"Honey", "price":"330", "image":"image/product-31.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-30.png" alt="">
+        <h3>Laziz Kheer Mix</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-4" data-product-name="Laziz Kheer Mix" data-product-price="150">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-40.png" alt="">
+        <h3>Ahsan Custard</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn select-options" data-product-id="fd-5" data-product-name="Ahsan Custard" data-options='[{"name":"Strawberry", "price":"350", "image":"f&dimage/product-41.png"}, {"name":"Vanilla", "price":"350", "image":"f&dimage/product-40.png"}, {"name":"Banana", "price":"350", "image":"f&dimage/product-39.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-24.png" alt="">
+        <h3>Samaya Elbow Macaroni</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-6" data-product-name="Samaya Elbow Macaroni" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-22.png" alt="">
+        <h3>Sohan Halwa</h3>
+        <div class="price">Rs.800/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-7" data-product-name="Sohan Halwa" data-product-price="800">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-7.png" alt="">
+        <h3>Pumpkin Murabba</h3>
+        <div class="price">Rs. 400/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-8" data-product-name="Pumpkin Murabba" data-product-price="400">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-25.png" alt="">
+        <h3>Sheer Khurma</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-9" data-product-name="Sheer Khurma" data-product-price="200">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-9.png" alt="">
+        <h3>Chakki Aata</h3>
+        <div class="price">Rs. 800/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-10" data-product-name="Chakki Aata" data-product-price="800">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-8.png" alt="">
+        <h3>Mixed Achaar</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-11" data-product-name="Mixed Achaar" data-product-price="550">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-6.png" alt="">
+        <h3>Rooh Afza</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-12" data-product-name="Rooh Afza" data-product-price="550">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-4.png" alt="">
+        <h3>chatni Sabzi</h3>
+        <div class="price">Rs. 400/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-13" data-product-name="chatni Sabzi" data-product-price="400">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-2.png" alt="">
+        <h3>Mayonnaise</h3>
+        <div class="price">Rs. 650/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-14" data-product-name="Mayonnaise" data-product-price="650">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-12.png" alt="">
+        <h3>Nabila Macaroni</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn select-options" data-product-id="fd-15" data-product-name="Nabila Macaroni" data-options='[{"name":"Small Pack", "price":"250", "image":"f&dimage/product-12.png"}, {"name":"Large Pack", "price":"300", "image":"f&dimage/product-12.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-20.png" alt="">
+        <h3>H&B Macaroni</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn select-options" data-product-id="fd-16" data-product-name="H&B Macaroni" data-options='[{"name":"Small Pack", "price":"250", "image":"f&dimage/product-16.png"}, {"name":"Large Pack", "price":"300", "image":"f&dimage/product-16.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-11.png" alt="">
+        <h3>AlKaram Macaroni</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn select-options" data-product-id="fd-17" data-product-name="AlKaram Macaroni" data-options='[{"name":"Small Pack", "price":"250", "image":"f&dimage/product-11.png"}, {"name":"Large Pack", "price":"300", "image":"f&dimage/product-11.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-18.png" alt="">
+        <h3>Chilli garlic sauce</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-18" data-product-name="Chilli garlic sauce" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-43.png" alt="">
+        <h3>Aloo bukhara chatni</h3>
+        <div class="price">Rs. 500/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-19" data-product-name="Aloo bukhara chatni" data-product-price="500">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-42.png" alt="">
+        <h3>Mayo dressing</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-20" data-product-name="Mayo dressing" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-3.png" alt="">
+        <h3>Mixed achaar</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-21" data-product-name="Mixed achaar" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-29.png" alt="">
+        <h3>Alkaram Maida</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-22" data-product-name="Alkaram Maida" data-product-price="250">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-27.png" alt="">
+        <h3>Shakkar</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn select-options" data-product-name="Shakkar" data-product-id="fd-23" data-options='[{"name":"Small Pack", "price":"150", "image":"f&dimage/product-27.png"}, {"name":"Large Pack", "price":"300", "image":"f&dimage/product-27.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-28.png" alt="">
+        <h3>Alkaram rice</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn select-options" data-product-id="fd-25" data-product-name="Alkaram rice" data-options='[{"name":"Small Pack", "price":"150", "image":"f&dimage/product-28.png"}, {"name":"Large Pack", "price":"300", "image":"f&dimage/product-28.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="f&dimage/product-26.png" alt="">
+        <h3>Sawayyaan</h3>
+        <div class="price">Rs. 160/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="fd-26" data-product-name="Sawayyaan" data-product-price="160">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  
+
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Household items</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #modal-options {
+    margin: 20px 0;
+  }
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .option-item:hover {
+    border-color: #f39c12;
+  }
+  .option-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .option-item p {
+    margin: 0;
+    font-weight: bold;
+  }
+  </style>
+
+</head>
+<body>
+  <!-- reuse same header as index.html -->
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i> samaya traders </a>
+
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#categories">categories</a>
+        <a href="index.html#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-count" class="cart-count">0</span>
+        <div id="cart-items"></div>
+        <div class="total" id="cart-total">Total: $0.00</div>
+        <a href="https://wa.me/+923278641145" id="checkout-btn" class="btn" target="_blank" rel="noopener noreferrer">Checkout via WhatsApp</a>
+    </div>
+</header>
+
+  <!-- product options modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Select Option</h2>
+      <div id="modal-options"></div>
+      <button id="add-to-cart-modal" class="btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <section class="products" id="household items">
+    <h1 class="heading"></h1>
+    <div class="box-container" style="padding-top: 30px;">
+      <div class="box">
+        <img src="hiimage/product-39.png" alt="">
+        <h3>air freshner(15 types)</h3>
+        <div class="price">Rs. 800/-</div>
+        <a href="#" class="btn select-options" data-product-id="hi-12" data-product-name="air freshner" data-options='[{"name":"Sandal", "price":"800", "image":"hiimage/product-41.png"}, {"name":"Tropic", "price":"800", "image":"hiimage/product-40.png"}, {"name":"Lovely Jasmine", "price":"800", "image":"hiimage/product-39.png"}, {"name":"Ocean", "price":"800", "image":"hiimage/product-37.png"}, {"name":"ok one", "price":"800", "image":"hiimage/product-35.png"}, {"name":"Far Height", "price":"800", "image":"hiimage/product-39.png"}, {"name":"Bakhoor", "price":"800", "image":"hiimage/product-34.png"}, {"name":"Hovac", "price":"800", "image":"hiimage/product-33.png"}, {"name":"Gold Water", "price":"800", "image":"hiimage/product-31.png"}, {"name":"Black Passion", "price":"800", "image":"hiimage/product-30.png"}, {"name":"Tropic", "price":"800", "image":"hiimage/product-40.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-32.png" alt="">
+        <h3>Body spray</h3>
+        <div class="price">Rs. 750/-</div>
+        <a href="#" class="btn select-options" data-product-id="hi-13" data-product-name="body spray" data-options='[{"name":"Energetic", "price":"750", "image":"hiimage/product-36.png"}, {"name":"Star Beige", "price":"750", "image":"hiimage/product-32.png"}, {"name":"Star Gray", "price":"750", "image":"hiimage/product-29.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-15.png" alt="">
+        <h3>Samaya tiles cleaner</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-1" data-product-name="Samaya tiles cleaner" data-product-price="350">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-14.png" alt="">
+        <h3>Samaya lemon max dish wash</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-2" data-product-name="Samaya lemon max dish wash" data-product-price="350">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-21.png" alt="">
+        <h3>Solec Ultra Surf</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn select-options" data-product-id="hi-14" data-product-name="solec ultra surf" data-options='[{"name":"Small Pack", "price":"450", "image":"hiimage/product-21.png"}, {"name":"Medium Pack", "price":"550", "image":"hiimage/product-21.png"}, {"name":"Large Pack", "price":"650", "image":"hiimage/product-21.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-11.png" alt="">
+        <h3>Dettol</h3>
+        <div class="price">Rs. 1400/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-3" data-product-name="Dettol" data-product-price="1400">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-4.png" alt="">
+        <h3>Black coil</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-4" data-product-name="Black coil" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-3.png" alt="">
+        <h3>Metro Liquid Blue</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-5" data-product-name="Metro Liquid Blue" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-2.png" alt="">
+        <h3>Insta Glass Cleaner</h3>
+        <div class="price">Rs. 380/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-6" data-product-name="Insta Glass Cleaner" data-product-price="380">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-1.png" alt="">
+        <h3>Harpic(2 sizes)</h3>
+        <div class="price">Rs. 500/- and Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-7" data-product-name="Harpic" data-product-price="500">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-5.png" alt="">
+        <h3>Rainbow Bleach</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-8" data-product-name="Rainbow Bleach" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-26.png" alt="">
+        <h3>Steal scrubber</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-9" data-product-name="Steel scrubber" data-product-price="150">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-25.png" alt="">
+        <h3>Sponge</h3>
+        <div class="price">Rs. 580/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-10" data-product-name="Sponge" data-product-price="580">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="hiimage/product-42.png" alt="">
+        <h3>Samaya Surf</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="hi-11" data-product-name="Samaya Surf" data-product-price="260">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  
+
+
+</body>
+</html>

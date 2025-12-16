@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Baby products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i> samaya traders </a>
+
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#categories">categories</a>
+        <a href="index.html#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-count" class="cart-count">0</span>
+        <div id="cart-items"></div>
+        <div class="total" id="cart-total">Total: Rs. 0.00</div>
+        <a href="https://wa.me/+923278641145" id="checkout-btn" class="btn" target="_blank" rel="noopener noreferrer">Checkout via WhatsApp</a>
+    </div>
+</header>
+
+  <section class="products" id="dairy">
+    <h1 class="heading"></h1>
+    <div class="box-container" style="padding-top: 30px;">
+      <div class="box">
+        <img src="bpimage/product-2.png" alt="">
+        <h3>Baby powder</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="bp-1" data-product-name="Baby powder" data-product-price="350">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="bpimage/product-4.png" alt="">
+        <h3>Go-Rash powder</h3>
+        <div class="price">Rs. 450/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="bp-2" data-product-name="Go-Rash powder" data-product-price="450">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="bpimage/product-1.png" alt="">
+        <h3>Baby oil</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="bp-3" data-product-name="Baby oil" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="bpimage/product-6.png" alt="">
+        <h3>Kids toothbrush</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="bp-4" data-product-name="Kids toothbrush" data-product-price="250">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="bpimage/product-7.png" alt="">
+        <h3>Baby shampoo</h3>
+        <div class="price">Rs. 450/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="bp-5" data-product-name="Baby shampoo" data-product-price="450">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

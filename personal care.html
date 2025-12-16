@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Personal care</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #modal-options {
+    margin: 20px 0;
+  }
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .option-item:hover {
+    border-color: #f39c12;
+  }
+  .option-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .option-item p {
+    margin: 0;
+    font-weight: bold;
+  }
+  </style>
+
+</head>
+<body>
+  <!-- header (same as index) -->
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i> samaya traders </a>
+
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#categories">categories</a>
+        <a href="index.html#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-count" class="cart-count">0</span>
+        <div id="cart-items"></div>
+        <div class="total" id="cart-total">Total: Rs. 0.00</div>
+        <a href="https://wa.me/+923278641145" id="checkout-btn" class="btn" target="_blank" rel="noopener noreferrer">Checkout via WhatsApp</a>
+    </div>
+</header>
+
+  <!-- product options modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Select Option</h2>
+      <div id="modal-options"></div>
+      <button id="add-to-cart-modal" class="btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <section class="products" id="fruits">
+    <h1 class="heading"></h1>
+    <div class="box-container" style="padding-top: 30px;">
+      <div class="box">
+        <img src="pcimage/product-74.png" alt="">
+        <h3>Faiza beauty cream</h3>
+        <div class="price">Rs. 450/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-1" data-product-name="Faiza beauty cream" data-product-price="450">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-75.png" alt="">
+        <h3>Cotton buds</h3>
+        <div class="price">Rs. 50/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-2" data-product-name="Cotton buds" data-product-price="50">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-1.png" alt="">
+        <h3>Samaya BB Glow</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-3" data-product-name="Samaya BB Glow" data-options='[{"name":"Small", "price":"Rs. 550/-", "image":"pcimage/product-1.png"}, {"name":"Large", "price":"Rs. 750/-", "image":"pcimage/product-1.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/pproduct-18.png" alt="">
+        <h3>Deodorant</h3>
+        <div class="price">Rs. 700/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-4" data-product-name="Deodorant" data-product-price="700">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-37.png" alt="">
+        <h3>Samaya shampoo</h3>
+        <div class="price">Rs. 850/- and Rs. 450/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-5" data-product-name="Samaya shampoo" data-options='[{"name":"Small", "price":"Rs. 450/-", "image":"pcimage/product-37.png"}, {"name":"Large", "price":"Rs. 850/-", "image":"pcimage/product-37.png"}]'>select options</a>
+    <div class="box">
+        <img src="pcimage/product-50.png" alt="">
+        <h3>Vaseline</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-6" data-product-name="Vaseline" data-options='[{"name":"Small", "price":"Rs. 150/-", "image":"pcimage/product-50.png"}, {"name":"Medium", "price":"Rs. 250/-", "image":"pcimage/product-47.png"}, {"name":"Large", "price":"Rs. 450/-", "image":"pcimage/product-51.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-63.png" alt="">
+        <h3>Lark facewash</h3>
+        <div class="price">Rs. 600/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-7" data-product-name="Lark facewash" data-product-price="600">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-44.png" alt="">
+        <h3>Dental floss</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-8" data-product-name="Dental floss" data-product-price="200">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-39.png" alt="">
+        <h3>Savannah facewash</h3>
+        <div class="price">Rs. 600/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-9" data-product-name="Savannah facewash" data-options='[{"name":"Aloe Vera", "price":"Rs. 600/-", "image":"pcimage/product-43.png"}, {"name":"Rose", "price":"Rs. 600/-", "image":"pcimage/product-42.png"}, {"name":"Moringa", "price":"Rs. 600/-", "image":"pcimage/product-39.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-38.png" alt="">
+        <h3>4ME shampoo</h3>
+        <div class="price">Rs. 900/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-10" data-product-name="4ME shampoo" data-options='[{"name":"Ginger", "price":"Rs. 900/-", "image":"pcimage/product-38.png"}, {"name":"Garlic", "price":"Rs. 900/-", "image":"pcimage/product-2.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-40.png" alt="">
+        <h3>Vatika hair oil</h3>
+        <div class="price">Rs. 600/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-11" data-product-name="Vatika hair oil" data-options='[{"name":"Almond Oil", "price":"Rs. 600/-", "image":"pcimage/product-40.png"}, {"name":"Coconut Oil", "price":"Rs. 600/-", "image":"pcimage/product-36.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-35.png" alt="">
+        <h3>Talcom powder</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-12" data-product-name="Talcom powder" data-options='[{"name":"Romance", "price":"Rs. 250/-", "image":"pcimage/product-3.png"}, {"name":"Big Cat", "price":"Rs. 250/-", "image":"pcimage/product-24.png"}, {"name":"Brite Fashion", "price":"Rs. 250/-", "image":"pcimage/product-34.png"}, {"name":"Teena", "price":"Rs. 250/-", "image":"pcimage/product-35.png"}, {"name":"Modern", "price":"Rs. 250/-", "image":"pcimage/product-64.png"}, {"name":"Blue Lady", "price":"Rs. 250/-", "image":"pcimage/product-66.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-16.png" alt="">
+        <h3>Anti-hairloss hair oil</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-13" data-product-name="Anti-hairloss hair oil" data-product-price="550">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-15.png" alt="">
+        <h3>Prickly heat powder(types - 4)</h3>
+        <div class="price">Rs. 450/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-14" data-product-name="Prickly heat powder(types - 4)" data-options='[{"name":"Lemon", "price":"Rs. 450/-", "image":"pcimage/product-16.png"}, {"name":"Mint", "price":"Rs. 450/-", "image":"pcimage/product-33.png"}, {"name":"Neem", "price":"Rs. 450/-", "image":"pcimage/product-32.png"}, {"name":"Teena", "price":"Rs. 450/-", "image":"pcimage/product-15.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-29.png" alt="">
+        <h3>Dewa soap</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-15" data-product-name="Dewa soap" data-options='[{"name":"Original", "price":"Rs. 350/-", "image":"pcimage/product-27.png"}, {"name":"Pink Rose", "price":"Rs. 350/-", "image":"pcimage/product-29.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-26.png" alt="">
+        <h3>Tibet soap</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-16" data-product-name="Tibet soap" data-product-price="300">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-22.png" alt="">
+        <h3>d'Or soap</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-17" data-product-name="d'Or soap" data-product-price="300">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-23.png" alt="">
+        <h3>Multani mitti</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-18" data-product-name="Multani mitti" data-product-price="350">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-20.png" alt="">
+        <h3>Medicare toothbrush</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-19" data-product-name="Medicare toothbrush" data-product-price="150">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-21.png" alt="">
+        <h3>Coral toothbrush</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-20" data-product-name="Coral toothbrush" data-product-price="200">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-18.png" alt="">
+        <h3>Doctor toothpaste</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-21" data-product-name="Doctor toothpaste" data-options='[{"name":"Small", "price":"Rs. 300/-", "image":"pcimage/product-18.png"}, {"name":"Large", "price":"Rs. 400/-", "image":"pcimage/product-18.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-19.png" alt="">
+        <h3>Sensodyne toothpaste</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-22" data-product-name="Sensodyne toothpaste" data-options='[{"name":"Small", "price":"Rs. 300/-", "image":"pcimage/product-19.png"}, {"name":"Large", "price":"Rs. 400/-", "image":"pcimage/product-19.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-13.png" alt="">
+        <h3>Colgate toothpaste</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-23" data-product-name="Colgate toothpaste" data-options='[{"name":"Small", "price":"Rs. 300/-", "image":"pcimage/product-13.png"}, {"name":"Large", "price":"Rs. 400/-", "image":"pcimage/product-13.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-17.png" alt="">
+        <h3>Sanitary pads</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-24" data-product-name="Sanitary pads" data-product-price="350">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-12.png" alt="">
+        <h3>Peel-off masks</h3>
+        <div class="price">Rs. 480/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-25" data-product-name="Peel-off masks" data-product-price="480">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-11.png" alt="">
+        <h3>Creme bleach</h3>
+        <div class="price">Rs. 30/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-26" data-product-name="Creme bleach" data-product-price="30">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-7.png" alt="">
+        <h3>Amla shampoo</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-27" data-product-name="Amla shampoo" data-options='[{"name":"Small", "price":"Rs. 300/-", "image":"pcimage/product-8.png"}, {"name":"Medium", "price":"Rs. 650/-", "image":"pcimage/product-5.png"}, {"name":"Large", "price":"Rs. 850/-", "image":"pcimage/product-7.png"}]'>select options</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-72.png" alt="">
+        <h3>Fida soap</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-28" data-product-name="Fida soap" data-product-price="200">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-71.png" alt="">
+        <h3>Facial razors</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-29" data-product-name="Facial razors" data-product-price="300">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-70.png" alt="">
+        <h3>Hair colour shampoo</h3>
+        <div class="price">Rs. 100/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-30" data-product-name="Hair colour shampoo" data-product-price="100">Add to Cart</a>
+      </div>
+    <div class="box">
+        <img src="pcimage/product-69.png" alt="">
+        <h3>Skin lightening cream</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-31" data-product-name="Skin lightening cream" data-options='[{"name":"Small", "price":"Rs. 550/-", "image":"pcimage/product-69.png"}, {"name":"Large", "price":"Rs. 750/-", "image":"pcimage/product-69.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-68.png" alt="">
+        <h3>Samaya Heel creaked cream</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-32" data-product-name="Samaya Heel creaked cream" data-options='[{"name":"Small", "price":"Rs. 550/-", "image":"pcimage/product-68.png"}, {"name":"Large", "price":"Rs. 750/-", "image":"pcimage/product-68.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-67.png" alt="">
+        <h3>Samya Gold Multi vitamin massage cream</h3>
+        <div class="price">Rs. 550/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-33" data-product-name="Samya Gold Multi vitamin massage cream" data-options='[{"name":"Small", "price":"Rs. 550/-", "image":"pcimage/product-67.png"}, {"name":"Large", "price":"Rs. 750/-", "image":"pcimage/product-67.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-30.png" alt="">
+        <h3>Hair removal cream</h3>
+        <div class="price">Rs. 500/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-34" data-product-name="Hair removal cream" data-options='[{"name":"Lemon", "price":"Rs. 500/-", "image":"pcimage/product-30.png"}, {"name":"Cucumber", "price":"Rs. 500/-", "image":"pcimage/product-31.png"}, {"name":"Pink Rose", "price":"Rs. 500/-", "image":"pcimage/product-28.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-55.png" alt="">
+        <h3>Arq e Ghulaab</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-35" data-product-name="Arq e Ghulaab" data-product-price="200">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-54.png" alt="">
+        <h3>Glycerine</h3>
+        <div class="price">Rs. 400/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-36" data-product-name="Glycerine" data-options='[{"name":"Original", "price":"Rs. 400/-", "image":"pcimage/product-54.png"}, {"name":"Rose flavor", "price":"Rs. 400/-", "image":"pcimage/product-53.png"}, {"name":"Lychee flavor", "price":"Rs. 400/-", "image":"pcimage/product-53.png"}, {"name":"Strawberry flavor", "price":"Rs. 400/-", "image":"pcimage/product-53.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-59.png" alt="">
+        <h3>Fruiton soap</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn select-options" data-product-id="pc-37" data-product-name="Fruiton soap" data-options='[{"name":"Citrus Lemon", "price":"Rs. 200/-", "image":"pcimage/product-59.png"}, {"name":"Orange Satsuma", "price":"Rs. 200/-", "image":"pcimage/product-60.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-76.png" alt="">
+        <h3>Glucose</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-38" data-product-name="Glucose" data-product-price="250">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="pcimage/product-25.png" alt="">
+        <h3>Ispaghol</h3>
+        <div class="price">Rs. 100/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="pc-39" data-product-name="Ispaghol" data-product-price="100">Add to Cart</a>
+      </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  
+
+
+</body>
+</html>

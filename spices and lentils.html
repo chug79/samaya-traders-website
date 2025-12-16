@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Spices and lentils</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #modal-options {
+    margin: 20px 0;
+  }
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .option-item:hover {
+    border-color: #f39c12;
+  }
+  .option-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .option-item p {
+    margin: 0;
+    font-weight: bold;
+  }
+  </style>
+
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i> samaya traders </a>
+
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#categories">categories</a>
+        <a href="index.html#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-count" class="cart-count">0</span>
+        <div id="cart-items"></div>
+        <div class="total" id="cart-total">Total: Rs. 0.00</div>
+        <a href="https://wa.me/+923278641145" id="checkout-btn" class="btn" target="_blank" rel="noopener noreferrer">Checkout via WhatsApp</a>
+    </div>
+</header>
+
+  <!-- product options modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Select Option</h2>
+      <div id="modal-options"></div>
+      <button id="add-to-cart-modal" class="btn">Add to Cart</button>
+    </div>
+  </div>
+  <section class="products" id="dairy">
+    <h1 class="heading"></h1>
+    <div class="box-container" style="padding-top: 30px;">
+      <div class="box">
+        <img src="s&limage/product-39.png" alt="">
+        <h3>Special Qorma masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-1" data-product-name="Special Qorma masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-52.png" alt="">
+        <h3>Karahi Gosht masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-2" data-product-name="Karahi Gosht masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-30.png" alt="">
+        <h3>Haldi powder</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-3" data-product-name="Haldi powder" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-50.png" alt="">
+        <h3>Achaar Gosht masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-4" data-product-name="Achaar Gosht masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-49.png" alt="">
+        <h3>Samaya biryani masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-5" data-product-name="Samaya biryani masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-34.png" alt="">
+        <h3>Murghi masala powder</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-6" data-product-name="Murghi masala powder" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-2.png" alt="">
+        <h3>Special Qorma masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-7" data-product-name="Special Qorma masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-33.png" alt="">
+        <h3>Special Qeema masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-8" data-product-name="Special Qeema masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-32.png" alt="">
+        <h3>Dhara Mirch</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-9" data-product-name="Dhara Mirch" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-31.png" alt="">
+        <h3>Special Beef Pulao masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-10" data-product-name="Special Beef Pulao masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-29.png" alt="">
+        <h3>Sabit Garam masala</h3>
+        <div class="price">Rs. 230/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-11" data-product-name="Sabit Garam masala" data-product-price="230">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-2.png" alt="">
+        <h3>Samaya Dharra mirch</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-12" data-product-name="Samaya Dharra mirch" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-44.png" alt="">
+        <h3>Karahi masala</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-13" data-product-name="Karahi masala" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-60.png" alt="">
+        <h3>Fried pyaaz</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-14" data-product-name="Fried pyaaz" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-40.png" alt="">
+        <h3>Alkaram black channe</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-15" data-product-name="Alkaram black channe" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-56.png" alt="">
+        <h3>Maash Daal</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-16" data-product-name="Maash Daal" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-27.png" alt="">
+        <h3>Nabila Dhaniya</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-17" data-product-name="Nabila Dhaniya" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-2.png" alt="">
+        <h3>Special Biryani masala</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-18" data-product-name="Special Biryani masala" data-product-price="250">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-59.png" alt="">
+        <h3>Nabila sagu daana</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-19" data-product-name="Nabila sagu daana" data-product-price="250">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-9.png" alt="">
+        <h3>Nabila gosht masala</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-20" data-product-name="Nabila gosht masala" data-product-price="250">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-48.png" alt="">
+        <h3>White lobia</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-21" data-product-name="White lobia" data-product-price="260">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-55.png" alt="">
+        <h3>Daal Mong</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-22" data-product-name="Dalli Mong" data-product-price="260">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-2.png" alt="">
+        <h3>Black channe</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-23" data-product-name="Black channe" data-product-price="260">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-2.png" alt="">
+        <h3>Nabila Garam Masala</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-24" data-product-name="Nabila Garam Masala" data-product-price="350">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-2.png" alt="">
+        <h3>Nabila Ajwain</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-25" data-product-name="Nabila Ajwain" data-product-price="200">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-57.png" alt="">
+        <h3>Haldi packet</h3>
+        <div class="price">Rs. 400/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-26" data-product-name="Haldi packet" data-product-price="400">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-58.png" alt="">
+        <h3>Chaat masala packet</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-27" data-product-name="Chaat masala packet" data-product-price="200">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-17.png" alt="">
+        <h3>Chaat masala</h3>
+        <div class="price">Rs. 400/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-28" data-product-name="Chaat masala" data-product-price="400">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/product-54.png" alt="">
+        <h3>Patti</h3>
+        <div class="price">Rs. 700/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-29" data-product-name="Patti" data-product-price="700">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="s&limage/pproduct-23.png" alt="">
+        <h3>Basaar jar</h3>
+        <div class="price">Rs. 800/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="sl-31" data-product-name="Basaar" data-product-price="800">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  
+
+
+</body>
+</html>

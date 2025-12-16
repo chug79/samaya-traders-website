@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Snacks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #modal-options {
+    margin: 20px 0;
+  }
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .option-item:hover {
+    border-color: #f39c12;
+  }
+  .option-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .option-item p {
+    margin: 0;
+    font-weight: bold;
+  }
+  </style>
+
+</head>
+<body>
+  <!-- reuse same header as index.html -->
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i> samaya traders </a>
+
+    <nav class="navbar">
+        <a href="index.html#home">home</a>
+        <a href="index.html#products">products</a>
+        <a href="index.html#categories">categories</a>
+        <a href="index.html#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-count" class="cart-count">0</span>
+        <div id="cart-items"></div>
+        <div class="total" id="cart-total">Total: Rs. 0.00</div>
+        <a href="https://wa.me/+923278641145" id="checkout-btn" class="btn" target="_blank" rel="noopener noreferrer">Checkout via WhatsApp</a>
+    </div>
+</header>
+
+  <!-- product options modal -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Select Option</h2>
+      <div id="modal-options"></div>
+      <button id="add-to-cart-modal" class="btn">Add to Cart</button>
+    </div>
+  </div>
+  <section class="products" id="snacks">
+    <h1 class="heading"></h1>
+    <div class="box-container" style="padding-top: 30px;">
+      <div class="box">
+        <img src="simage/pproduct-25.png" alt="">
+        <h3>Nabila Candy(2 types)</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn select-options" data-product-id="s-1" data-product-name="Nabila Candy" data-options='[{"name":"Small Pack", "price":"150", "image":"simage/pproduct-25.png"}, {"name":"Large Pack", "price":"150", "image":"simage/product-1.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="simage/pproduct-16.png" alt="">
+        <h3>Coconut</h3>
+        <div class="price">Rs. 400/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-2" data-product-name="Coconut" data-product-price="400">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-36.png" alt="">
+        <h3>Bunty sweet</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-3" data-product-name="Bunty sweet" data-product-price="200">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-33.png" alt="">
+        <h3>Setak Biscuits</h3>
+        <div class="price">Rs. 280/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-4" data-product-name="Setak Biscuits" data-product-price="280">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-15.png" alt="">
+        <h3>Shirin Asal Biscuits</h3>
+        <div class="price">Rs. 130/-</div>
+        <a href="#" class="btn select-options" data-product-id="s-5" data-product-name="Shirin Asal Biscuits" data-options='[{"name":"Orange", "price":"130", "image":"simage/product-15.png"}, {"name":"Banana", "price":"130", "image":"simage/product-16.png"}, {"name":"Strawberry", "price":"130", "image":"simage/product-30.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-18.png" alt="">
+        <h3>Azardis Biscuits</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-6" data-product-name="Azardis Biscuits" data-product-price="200">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-9.png" alt="">
+        <h3>Cake bar</h3>
+        <div class="price">Rs. 50/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-7" data-product-name="Cake bar" data-product-price="50">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-14.png" alt="">
+        <h3>Bat Ball Candy</h3>
+        <div class="price">Rs. 10/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-8" data-product-name="Bat Ball Candy" data-product-price="10">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-6.png" alt="">
+        <h3>Dairy fresh chocolate</h3>
+        <div class="price">Rs. 30/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-9" data-product-name="Dairy fresh chocolate" data-product-price="30">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-8.png" alt="">
+        <h3>Dijestive Biscuits</h3>
+        <div class="price">Rs. 280/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-10" data-product-name="Dijestive Biscuits" data-product-price="280">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/pproduct-2.png" alt="">
+        <h3>Samaya Saloonian</h3>
+        <div class="price">Rs. 150/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-11" data-product-name="Samaya Saloonian" data-product-price="150">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-5.png" alt="">
+        <h3>Jelly fish</h3>
+        <div class="price">Rs. 15/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-12" data-product-name="Jelly fish" data-product-price="15">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-13.png" alt="">
+        <h3>Bonus Candy</h3>
+        <div class="price">Rs. 200/-</div>
+        <a href="#" class="btn select-options" data-product-id="s-13" data-product-name="Bonus Candy" data-options='[{"name":"Pink", "price":"200", "image":"simage/product-10.png"}, {"name":"Yellow", "price":"200", "image":"simage/product-13.png"}, {"name":"Black", "price":"200", "image":"simage/product-11.png"}, {"name":"Mixed", "price":"200", "image":"simage/product-12.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-3.png" alt="">
+        <h3>Fish Imli</h3>
+        <div class="price">Rs. 15/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-14" data-product-name="Fish Imli" data-product-price="15">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-1.png" alt="">
+        <h3>Nabila Jelly</h3>
+        <div class="price">Rs. 350/-</div>
+        <a href="#" class="btn select-options" data-product-id="s-15" data-product-name="Nabila Jelly" data-options='[{"name":"Green", "price":"350", "image":"simage/product-1.png"}, {"name":"Pink", "price":"350", "image":"simage/product-2.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="simage/pproduct-6.png" alt="">
+        <h3>Coconut egg balls</h3>
+        <div class="price">Rs. 300/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-16" data-product-name="Coconut egg balls" data-product-price="300">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-7.png" alt="">
+        <h3>Popcorns</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn select-options" data-product-id="s-17" data-product-name="Popcorns" data-options='[{"name":"Small Pack", "price":"260", "image":"simage/product-7.png"}, {"name":"Large Pack", "price":"400", "image":"simage/product-7.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-27.png" alt="">
+        <h3>Slanty</h3>
+        <div class="price">Rs. 450/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-18" data-product-name="Slanty" data-product-price="450">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-29.png" alt="">
+        <h3>Wavy</h3>
+        <div class="price">Rs. 100/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-19" data-product-name="Wavy" data-product-price="100">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-28.png" alt="">
+        <h3>Fizzy sticks</h3>
+        <div class="price">Rs. 15/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-20" data-product-name="Fizzy sticks" data-product-price="15">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-26.png" alt="">
+        <h3>Fry chips</h3>
+        <div class="price">Rs. 250/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-21" data-product-name="Fry chips" data-product-price="250">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/pproduct-15.png" alt="">
+        <h3>H&B paparr</h3>
+        <div class="price">Rs. 50/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-22" data-product-name="H&B paparr" data-product-price="50">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-21.png" alt="">
+        <h3>Dadijan fry chips</h3>
+        <div class="price">Rs. 450/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-23" data-product-name="Dadijan fry chips" data-product-price="450">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-22.png" alt="">
+        <h3>Noodles</h3>
+        <div class="price">Rs. 50/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-24" data-product-name="Noodles" data-product-price="50">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-35.png" alt="">
+        <h3>Samaya nimko</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-25" data-product-name="Samaya nimko" data-product-price="260">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-24.png" alt="">
+        <h3>CFP Nimko</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-26" data-product-name="CFP Nimko" data-product-price="260">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-4.png" alt="">
+        <h3>Heera candy</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn select-options" data-product-id="s-27" data-product-name="Heera candy(2 types)" data-options='[{"name":"Rings", "price":"260", "image":"simage/product-32.png"}, {"name":"Balls", "price":"260", "image":"simage/product-37.png"}]'>select options</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-23.png" alt="">
+        <h3>Barfi</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-28" data-product-name="Barfi" data-product-price="260">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-19.png" alt="">
+        <h3>Arsh Nimko Mix</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-29" data-product-name="Arsh Nimko Mix" data-product-price="260">Add to Cart</a>
+      </div>
+      <div class="box">
+        <img src="simage/product-38.png" alt="">
+        <h3>Black sweets</h3>
+        <div class="price">Rs. 260/-</div>
+        <a href="#" class="btn add-to-cart" data-product-id="s-30" data-product-name="Black sweets" data-product-price="260">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  
+
+
+</body>
+</html>

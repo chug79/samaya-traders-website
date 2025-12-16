@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samaya traders</title>
+
+    <!-- swiper cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #modal-options {
+      margin: 20px 0;
+    }
+    .option-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .option-item:hover {
+      border-color: #f39c12;
+    }
+    .option-item img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+    .option-item p {
+      margin: 0;
+      font-weight: bold;
+    }
+    </style>
+
+</head>
+<body>
+
+    <!-- header section starts -->
+
+<header class="header">
+    <a href="#" class="logo"><i class="fas fa-shopping-basket"></i> samaya traders </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#products">products</a>
+        <a href="#categories">categories</a>
+        <a href="#review">review</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <div class="shopping-cart" id="shopping-cart">
+        <span id="cart-count" class="cart-count">0</span>
+        <div id="cart-items"><!-- cart items will be rendered here --></div>
+
+        <div class="total" id="cart-total">Total: Rs. 0.00</div>
+        <a href="https://wa.me/+923278641145" id="checkout-btn" class="btn" target="_blank" rel="noopener noreferrer">Checkout via WhatsApp</a>
+    </div>
+
+</header>
+    <!-- header section ends -->
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Your Everyday<span> Grocery</span> Partner</h3>
+            <p>Stock up on essentials with confidence and convenience.</p>
+            <a href="#categories" class="btn" style="color:white">explore now!</a>
+        </div>
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- products section starts -->
+
+    <section class="products" id="products">
+        <h1 class="heading">our <span>products</span></h1>
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <img src="image/product-1.png" alt="">
+                    <h3>Patti</h3>
+                    <div class="price">Rs. 700/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn add-to-cart" data-product-id="sl-29" data-product-name="Patti" data-product-price="700">Add to Cart</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/product-3.png" alt="">
+                    <h3>Basaar Jar</h3>
+                    <div class="price">Rs. 800/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn add-to-cart" data-product-id="sl-31" data-product-name="Basaar" data-product-price="800">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="image/product-2.png" alt="">
+                    <h3>Alkaram rice</h3>
+                    <div class="price">Rs. 150/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                        <a href="#" class="btn select-options" data-product-id="fd-25" data-product-name="Alkaram rice" data-options='[{"name":"Small Pack", "price":"150", "image":"f&dimage/product-28.png"}, {"name":"Large Pack", "price":"300", "image":"f&dimage/product-28.png"}]'>select options</a>
+
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/product-4.png" alt="">
+                    <h3>strawberry custard</h3>
+                    <div class="price">Rs. 260</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn add-to-cart" data-product-id="2" data-product-name="custard" data-product-price="4.99">add to cart</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <img src="image/product-5.png" alt="">
+                    <h3>fresh potato</h3>
+                    <div class="price">$4.99/- - 10.99/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn select-options" data-product-name="fresh potato" data-options='[{"name":"1kg", "price":"4.99", "image":"image/product-5.png"}, {"name":"2kg", "price":"7.99", "image":"image/product-5.png"}, {"name":"5kg", "price":"10.99", "image":"image/product-5.png"}]'>select options</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/product-6.png" alt="">
+                    <h3>fresh avocado</h3>
+                    <div class="price">$4.99/- - 10.99/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn select-options" data-product-name="fresh avocado" data-options='[{"name":"1kg", "price":"4.99", "image":"image/product-6.png"}, {"name":"2kg", "price":"7.99", "image":"image/product-6.png"}, {"name":"5kg", "price":"10.99", "image":"image/product-6.png"}]'>select options</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/product-7.png" alt="">
+                    <h3>fresh carrot</h3>
+                    <div class="price">$4.99/- - 10.99/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn select-options" data-product-name="fresh carrot" data-options='[{"name":"1kg", "price":"4.99", "image":"image/product-7.png"}, {"name":"2kg", "price":"7.99", "image":"image/product-7.png"}, {"name":"5kg", "price":"10.99", "image":"image/product-7.png"}]'>select options</a>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/product-8.png" alt="">
+                    <h3>green lemon</h3>
+                    <div class="price">$4.99/- - 10.99/-</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn select-options" data-product-name="green lemon" data-options='[{"name":"1kg", "price":"4.99", "image":"image/product-8.png"}, {"name":"2kg", "price":"7.99", "image":"image/product-8.png"}, {"name":"5kg", "price":"10.99", "image":"image/product-8.png"}]'>select options</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- products section ends -->
+
+    <!-- categories section starts -->
+
+    <section class="categories" id="categories">
+        <h1 class="heading">product <span>categories</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="image/cat-1.png" alt="">
+                <h3>Household items</h3>
+                <p>upto 45% off</p>
+                <a href="household items.html" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="image/cat-2.png" alt="">
+                <h3>Personal care</h3>
+                <p>upto 45% off</p>
+                <a href="personal care.html" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="image/cat-3.png" alt="">
+                <h3>Spices and lentils</h3>
+                <p>upto 45% off</p>
+                <a href="food and drinks.html" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="image/cat-4.png" alt="">
+                <h3>Food and drinks</h3>
+                <p>upto 45% off</p>
+                <a href="spices and lentils.html" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="image/cat-5.png" alt="">
+                <h3>Snacks</h3>
+                <p>upto 45% off</p>
+                <a href="snacks.html" class="btn">shop now</a>
+            </div>
+            <div class="box">
+                <img src="image/cat-6.png" alt="">
+                <h3>Baby products</h3>
+                <p>upto 45% off</p>
+                <a href="baby products.html" class="btn">shop now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- categories section ends -->
+
+    <!-- review section starts -->
+
+    <section class="review" id="review">
+        <h1 class="heading">customer's <span>review</span></h1>
+        <div class="swiper review-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide box">
+                    <img src="image/pic-1.png" alt="">
+                    <p>Yahan se grocery lena hamesha easy rehta hai. Atta, chawal, daal se le kar spices jaise Biryani Masala aur Karahi Masala tak sab kuch fresh aur achi quality ka milta hai. Prices bhi reasonable hain, is liye main monthly shopping yahin se karta hoon.</p>
+                    <h3>Muhammad Attique</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/pic-2.png" alt="">
+                    <p>Is store ki sab se achi baat variety hai. Snacks, noodles, biscuits aur bachon ke liye candies tak sab ek hi jagah mil jata hai. Household items jaise Dettol, Harpic aur cleaners bhi original aur reliable hain.</p>
+                    <h3>Laiba Choudhary</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/pic-3.png" alt="">
+                    <p>Personal care aur baby products ke liye mujhe kahin aur jana hi nahi parta. Shampoo, facewash, baby oil aur baby powder sab trusted brands ke milte hain. Quality par kabhi compromise feel nahi hua.</p>
+                    <h3>Sana Ahmed</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide box">
+                    <img src="image/pic-4.png" alt="">
+                    <p>Traditional food items ka selection bohot acha hai. Sheer Khurma, Sawaiyan, Kheer Mix aur desi masalay hamesha fresh milte hain. Ghar ka taste bilkul maintain rehta hai.</p>
+                    <h3>Razia Liaqat</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- review section ends -->
+
+    
+
+    <!-- footer section starts -->
+
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>samaya traders <i class="fas fa-shopping-basket"></i></h3>
+                <p>Trusted brands, everyday items, and great value; shop smart, shop easy.</p>
+                <div class="share">
+                    <a href="https://www.facebook.com/share/16fvm7m5nf/" class="fab fa-facebook-f" target="_blank"></a>
+                    <a href="https://www.tiktok.com/@samayatradersmirpur?_r=1&_t=ZS-92H3LcMhHVp" class="fab fa-tiktok" target="_blank"></a>
+                    <a href="https://www.instagram.com/samayatradersmirpur?igsh=Zno1NnM5NmswZ2F3" class="fab fa-instagram" target="_blank"></a>
+                    <a href="https://youtube.com/@samayatradersmirpur?si=SpR6dHuarwPcICM6" class="fab fa-youtube" target="_blank"></a>
+                </div>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links"><i class="fas fa-phone"></i> +92-327-8641145 </a>
+                <a href="#" class="links contact-through-email"><i class="fas fa-envelope"></i> rof757@gmail.com </a>
+                <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> mirpur, ajk - 10250 </a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#home" class="links"><i class="fas fa-arrow-right"></i> home </a>
+                <a href="#products" class="links"><i class="fas fa-arrow-right"></i> products </a>
+                <a href="#categories" class="links"><i class="fas fa-arrow-right"></i> categories </a>
+                <a href="#review" class="links"><i class="fas fa-arrow-right"></i> review </a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Us!</h3>
+                <p>Send us a message via WhatsApp</p>
+                <form id="contact-form" class="contact-form">
+                    <textarea id="contact-message" class="text" rows="3" placeholder="Enter your query"></textarea>
+                    <div class="contact-actions" style="display:flex;gap:0.5rem;margin-top:.6rem">
+                        <button type="button" id="send-wa" class="btn">Send via WhatsApp</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <!-- footer section ends -->
+
+<!-- product options modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Select Option</h2>
+            <div id="modal-options"></div>
+            <button id="add-to-cart-modal" class="btn">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- custom javascript section starts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.0/swiper-bundle.min.js"></script>
+    <script src="script.js"></script> 
+    
+    
+
+    <!-- custom javascript section ends -->
+
+</body>
+</html>
